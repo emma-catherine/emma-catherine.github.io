@@ -1,12 +1,14 @@
 <html>
 <head>
-    <title>Lab 3</title>
+    <title>Lab 4</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
           integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
           crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
             integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
             crossorigin=""></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
     <style>
         .info {
             padding: 6px 8px;
@@ -62,111 +64,23 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-      var popup = L.popup();
-
-      function onMapClick(e) {
-          popup
-              .setLatLng(e.latlng)
-              .setContent("You clicked the map at " + e.latlng.toString())
-              .openOn(map);
-      }
-
-      map.on('click', onMapClick);
-
-      var info = L.control();
-
-      info.onAdd = function (map) {
-          this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
-          this.update();
-          return this._div;
-      };
-      info.update = function (edu) {
-          const contents = edu ? `<b>${edu.CensusData_NormBach} %</b><br />${edu.CensusData_CountyName}` : 'Hover over a county';
-          this._div.innerHTML = `<h4>Population with Bachelor's Degree</h4>${contents}`;
-      };
-
-      info.addTo(map);
-
-      //function formats the shape color based on the attribute d's value
-      //function formats the shape color based on the attribute d's value
-
-      function getColor(CensusData_NormBach) {
-          return CensusData_NormBach > 35.19 ? '#BD0026' :
-              CensusData_NormBach > 22.91 ? '#E31A1C' :
-                  CensusData_NormBach > 12.87 ? '#FC4E2A' :
-                      CensusData_NormBach > 0 ? '#FD8D3C' :
-                          '#FFEDA0';
-      }
-      function style(feature) {
-          return {
-              fillColor: getColor(feature.properties.CensusData_NormBach), //color by density attribute
-              weight: 0.5, //line weight
-              opacity: 1, //line opacity
-              color: 'black', //line color
-              fillOpacity: 0.7 //shape file
-          };
-      }
-
-    function highlightFeature(e) {
-        const layer = e.target;
-
-          layer.setStyle({
-              weight: 5,
-              color: 'white',
-              fillOpacity: 0.9
-          });
-
-          layer.bringToFront();
-
-          info.update(layer.feature.properties); //we will use this in a bit.
-        }
-
-        function resetHighlight(e) {
-          geojson.resetStyle(e.target);
-          info.update();
-        }
-
-        function zoomToFeature(e) {
-          map.fitbounds(e.target.getBounds());
-        }
-        function onEachFeature(feature, layer) {
-          layer.on({
-              mouseover: highlightFeature,
-              mouseout: resetHighlight,
-              click: zoomToFeature
-          });
-        }
-
-      const geojson = L.geoJson(IllinoisGJSON, {
-          style,
-          onEachFeature
-      }).addTo(map);
 
       const uniLocal = L.geoJSON(uni).addTo(map);
+var heatLayer = L.HeatLayer(uniLocal, {
+            radius: 100,
+            blur: 10,
+            opacity: 1,
+            maxZoom: 17,
+            max: 4.0,
 
-      //locates the legend in the bottom right of the map
-      var legend = L.control({ position: 'bottomright' });
+            gradient: {
+                0.0: 'green',
+                0.5: 'yellow',
+                1.0: 'red'
+            }
 
-      //adds the legend to the map in a <div> 
-      legend.onAdd = function (map) {
-
-          var div = L.DomUtil.create('div', 'info legend'),
-              grades = [10.5, 17.5, 27.5],
-              labels = [];
-
-          // loop through our CensusData_NormBach intervals and generate a label and colored square
-          for (var i = 0; i < grades.length; i++) {
-              div.innerHTML +=
-                  '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-                  grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
-          }
-
-          return div;
-      };
-
-      //adds the legend to the map
-      legend.addTo(map);
-
+        }).addTo(map);
+      
       
   </script>
 </body>
