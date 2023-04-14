@@ -41,10 +41,10 @@ var myStyle = {
 	  
 var geojsonLayer = L.geoJSON(null, {	
 	onEachFeature: function(feature, layer) {
-		style: myStyle
 				// Optional: add popups or other interactions to each feature
 			}
 		}).addTo(map);
+	  
 $.getJSON("https://gist.githubusercontent.com/raechelportelli/91c6caf9af3daf85a7a2fe1eec079a10/raw/28c42649557d8e286c54bc9ef97af4c17bafdd96/secondEd.geojson",
  function(data) {
  
@@ -56,6 +56,9 @@ var heatData = [];
             var value = layer.value;
             heatData.push([latlng.lat, latlng.lng, value]);
         });
+L.geoJSON(heatData, {
+	style: myStyle
+});
 var heatLayer = L.heatLayer(heatData, {
             radius: 100,
             blur: 10,
