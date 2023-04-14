@@ -56,9 +56,11 @@ var heatData = [];
             var value = layer.value;
             heatData.push([latlng.lat, latlng.lng, value]);
         });
+	
 L.geoJSON(heatData, {
-	style: myStyle
+	opacity: 0
 });
+	
 var heatLayer = L.heatLayer(heatData, {
             radius: 100,
             blur: 10,
