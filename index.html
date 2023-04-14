@@ -55,8 +55,11 @@ var heatData = [];
             heatData.push([latlng.lat, latlng.lng, value]);
         });
 	
-var myStyle = L.myStyle(heatData, {
-	opacity: 0
+var myStyle = {
+	"opacity": 0
+};
+	L.geoJSON(heatData, {
+	style: myStyle
 });
 	
 var heatLayer = L.heatLayer(heatData, {
