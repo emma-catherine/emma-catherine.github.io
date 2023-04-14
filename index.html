@@ -35,8 +35,13 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-var geojsonLayer = L.geoJSON(null, {
-			onEachFeature: function(feature, layer) {
+var myStyle = {
+	"opacity": 0
+};
+	  
+var geojsonLayer = L.geoJSON(null, {	
+	onEachFeature: function(feature, layer) {
+		style: myStyle
 				// Optional: add popups or other interactions to each feature
 			}
 		}).addTo(map);
