@@ -40,14 +40,18 @@ var geojsonLayer = L.geoJSON(null, {
 				// Optional: add popups or other interactions to each feature
 			}
 		}).addTo(map);
-      
-var uniLocal = L.geoJSON(uni).addTo(map);
+$.getJSON("https://gist.githubusercontent.com/raechelportelli/91c6caf9af3daf85a7a2fe1eec079a10/raw/28c42649557d8e286c54bc9ef97af4c17bafdd96/secondEd.geojson",
+ function(data) {
+ 
+geojsonLayer.addData(data);
+	
+var heatData = [];
         geojsonLayer.eachLayer(function (layer) {
             var latlng = layer.getLatLng();
             var value = layer.value;
             uniLocal.push([latlng.lat, latlng.lng, value]);
         });
-var heatLayer = L.HeatLayer(uniLocal, {
+var heatLayer = L.heatLayer(heatData, {
             radius: 100,
             blur: 10,
             opacity: 1,
@@ -57,12 +61,11 @@ var heatLayer = L.HeatLayer(uniLocal, {
             gradient: {
                 0.0: 'green',
                 0.5: 'yellow',
-                1.0: 'red'
-            }
+                1.0: 'red'}
 
         }).addTo(map);
       
-         
+	});     
   </script>
 </body>
 </html>
