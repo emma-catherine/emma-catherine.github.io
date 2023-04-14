@@ -49,7 +49,7 @@ var heatData = [];
         geojsonLayer.eachLayer(function (layer) {
             var latlng = layer.getLatLng();
             var value = layer.value;
-            uniLocal.push([latlng.lat, latlng.lng, value]);
+            heatData.push([latlng.lat, latlng.lng, value]);
         });
 var heatLayer = L.heatLayer(heatData, {
             radius: 100,
