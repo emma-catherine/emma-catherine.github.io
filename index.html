@@ -35,8 +35,13 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-
-const uniLocal = L.geoJSON(uni).addTo(map);
+var geojsonLayer = L.geoJSON(null, {
+			onEachFeature: function(feature, layer) {
+				// Optional: add popups or other interactions to each feature
+			}
+		}).addTo(map);
+      
+var uniLocal = L.geoJSON(uni).addTo(map);
         geojsonLayer.eachLayer(function (layer) {
             var latlng = layer.getLatLng();
             var value = layer.value;
