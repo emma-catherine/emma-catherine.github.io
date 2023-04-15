@@ -49,14 +49,14 @@ geojsonLayer.addData(data);
 var heatData = [];
         geojsonLayer.eachLayer(function (layer) {
             var latlng = layer.getLatLng();
-            var opacity = layer.setOpacity(1);
+            var opacity = layer.setOpacity(0);
             heatData.push([latlng.lat, latlng.lng, opacity]);
         });
 	
 var heatLayer = L.heatLayer(heatData, {
             radius: 100,
             blur: 10,
-            opacity: 0,
+            opacity: 1,
             maxZoom: 17,
             max: 4.0,
 
