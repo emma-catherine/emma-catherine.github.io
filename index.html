@@ -47,10 +47,12 @@ $.getJSON("https://gist.githubusercontent.com/raechelportelli/91c6caf9af3daf85a7
  function(data) {
  
 geojsonLayer.addData(data);
-geojsonLayer.eachLayer(function (myStyle) {
+
+var myStyle = L.myStyle(geojsonLayer, {
 	opacity: 0,
 	fillOpacity: 0
-});
+}).addTo(map);
+	
 var heatData = [];
         geojsonLayer.eachLayer(function (layer) {
             var latlng = layer.getLatLng();
