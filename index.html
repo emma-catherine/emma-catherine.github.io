@@ -55,13 +55,7 @@ var heatData = [];
             heatData.push([latlng.lat, latlng.lng, value]);
         });
 	
-var myStyle = {
-	"opacity": 0,
-	"fillOpacity": 0
-};
-	L.geoJSON(heatData, {
-	style: myStyle
-});
+
 	
 var heatLayer = L.heatLayer(heatData, {
             radius: 100,
@@ -76,7 +70,14 @@ var heatLayer = L.heatLayer(heatData, {
                 1.0: 'red'}
 
         }).addTo(map);
-      
+
+var myStyle = {
+	"opacity": 0,
+	"fillOpacity": 0
+};
+L.geoJSON(heatData, {
+	style: myStyle
+})addTo(map);	
 	});     
   </script>
 </body>
