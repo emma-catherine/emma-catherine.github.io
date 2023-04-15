@@ -48,10 +48,10 @@ $.getJSON("https://gist.githubusercontent.com/raechelportelli/91c6caf9af3daf85a7
  
 geojsonLayer.addData(data);
 
-var myStyle = L.myStyle(geojsonLayer, {
-	opacity: 0,
-	fillOpacity: 0
-}).addTo(map);
+//var myStyle = L.myStyle(geojsonLayer, {
+	//opacity: 0,
+	//fillOpacity: 0
+//}).addTo(map);
 	
 var heatData = [];
         geojsonLayer.eachLayer(function (layer) {
@@ -63,7 +63,7 @@ var heatData = [];
 var heatLayer = L.heatLayer(heatData, {
             radius: 100,
             blur: 10,
-            opacity: 1,
+            opacity: 0,
             maxZoom: 17,
             max: 4.0,
 
