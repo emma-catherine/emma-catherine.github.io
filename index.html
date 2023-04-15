@@ -52,11 +52,7 @@ var heatData = [];
         geojsonLayer.eachLayer(function (layer) {
             var latlng = layer.getLatLng();
             var value = layer.value;
-	var myStyle = {
-	"opacity": 0,
-	"fillOpacity": 0
-};
-            heatData.push([latlng.lat, latlng.lng, value, myStyle]);
+            heatData.push([latlng.lat, latlng.lng, value]);
         });
 	
 var heatLayer = L.heatLayer(heatData, {
