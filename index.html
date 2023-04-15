@@ -52,10 +52,12 @@ var heatData = [];
         geojsonLayer.eachLayer(function (layer) {
             var latlng = layer.getLatLng();
             var value = layer.value;
-            heatData.push([latlng.lat, latlng.lng, value]);
+	var myStyle = {
+	"opacity": 0,
+	"fillOpacity": 0
+};
+            heatData.push([latlng.lat, latlng.lng, value, myStyle]);
         });
-	
-
 	
 var heatLayer = L.heatLayer(heatData, {
             radius: 100,
@@ -71,13 +73,7 @@ var heatLayer = L.heatLayer(heatData, {
 
         }).addTo(map);
 
-var myStyle = {
-	"opacity": 0,
-	"fillOpacity": 0
-};
-L.geoJSON(heatData, {
-	style: myStyle
-})addTo(map);	
+	
 	});     
   </script>
 </body>
