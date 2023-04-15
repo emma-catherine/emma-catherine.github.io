@@ -42,8 +42,9 @@ function style(feature) {
 	};
 	  
 var geojsonLayer = L.geoJSON(null, {	
+	style,
 	onEachFeature: function(feature, layer) {
-		style,
+
 			}
 		}).addTo(map);
 	  
