@@ -55,14 +55,14 @@ var heatData = [];
 	
 var heatLayer = L.heatLayer(heatData, {
             radius: 30,
-            blur: 20,
+            blur: 40,
             opacity: 0.5,
             maxZoom: 17,
             max: 4.0,
 
             gradient: {
-                0.5: 'green',
-                0.5: 'yellow',
+                2.0: 'green',
+                1.0: 'yellow',
                 0.5: 'red'}
 
         }).addTo(map);
