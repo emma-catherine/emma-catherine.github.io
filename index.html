@@ -76,8 +76,8 @@
             .data(data)
             .enter()
             .append("circle")
-            .attr("cx", d=> xScale(d.Severity))
-            .attr("cy", d=> yScale(d.Accidents))
+            .attr("cx", d=> xScale(d.Accidents))
+            .attr("cy", d=> yScale(d.Severity))
             .attr("r", 5)
             .attr("transform", "translate(" + 100 + "," + 100 + ")")
             .style("fill", "#2AABA4");
