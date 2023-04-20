@@ -82,7 +82,7 @@
                           
             // Step 7
             svg.append('g')
-            .selectAll(".point")
+            .selectAll("dots")
             .data(data)
             .enter().append("path")
             .attr("d", d3.symbol().type(d3.symbolStar))
