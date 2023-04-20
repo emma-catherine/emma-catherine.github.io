@@ -67,14 +67,13 @@
         //Load data and create scatter plot 
          d3.csv("data.csv", function(data) {
             console.log(data);
-         var symbol = d3.symbolStar();
-
+         
             // Step 7
             svg.append('g')
             .selectAll("dot")
             .data(data)
             .enter()
-            .append("circle")
+            .append("rect")
             .attr("cx", d=> xScale(d.Accidents))
             .attr("cy", d=> yScale(d.Severity))
             .attr("r", 2)
