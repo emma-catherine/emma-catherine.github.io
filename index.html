@@ -8,6 +8,17 @@
 .myCircle:hover {
   stroke: black;
 }
+        .axis path,
+    .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+    }
+ 
+    .point {
+        fill: steelblue;
+        stroke: #000;
+    }
 </style>
 </head>
 <body>
@@ -68,12 +79,18 @@
          d3.csv("data.csv", function(data) {
             console.log(data);
          
+             svg.selectAll(".point")
+        .data(data)
+        .enter().append("path")
+        .attr("class", "point")
+        .attr("d", d3.symbol().type(d3.symbolTriangle))
+             
             // Step 7
             svg.append('g')
-            .selectAll("dot")
+            .selectAll(".point")
             .data(data)
-            .enter()
-            .append("circle")
+            .enter().append("path")
+            .attr("d", d3.symbol().type(d3.symbolStar))
             .attr("cx", d=> xScale(d.Accidents))
             .attr("cy", d=> yScale(d.Severity))
             .attr("r", 2)
