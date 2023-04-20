@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <h1>Lab 5</h1>
+    <title>Lab 5</title>
     <!--Step 2-->
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <style>
@@ -22,8 +22,8 @@
             height = svg.attr("height") - margin //200
 
         // Step 4 
-        var xScale = d3.scaleLinear().domain([0, 3]).range([0, width]),
-            yScale = d3.scaleLinear().domain([0, 800000]).range([height, 0]);
+        var yScale = d3.scaleLinear().domain([0, 3]).range([height, 0]),
+            xScale = d3.scaleLinear().domain([0, 800000]).range([0, width]);
             
         var g = svg.append("g")
             .attr("transform", "translate(" + 100 + "," + 100 + ")");
@@ -56,13 +56,12 @@
         .text('Count of Accidents(Dependant)');
 
         // Step 6
-        //switched y and x Scale for Q1
         g.append("g")
          .attr("transform", "translate(0," + height + ")")
-         .call(d3.axisBottom(yScale));
+         .call(d3.axisBottom(xScale));
         
         g.append("g")
-         .call(d3.axisLeft(xScale));
+         .call(d3.axisLeft(yScale));
     
        
         //Load data and create scatter plot 
@@ -76,8 +75,8 @@
             .data(data)
             .enter()
             .append("circle")
-            .attr("cy", d=> xScale(d.Severity))
-            .attr("cx", d=> yScale(d.Accidents))
+            .attr("cx", d=> xScale(d.Accidents))
+            .attr("cy", d=> yScale(d.Severity))
             .attr("r", 2)
             .attr("transform", "translate(" + 100 + "," + 100 + ")")
             .style("fill", "#CC0000");
