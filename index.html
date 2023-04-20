@@ -79,12 +79,7 @@
          d3.csv("data.csv", function(data) {
             console.log(data);
          
-             svg.selectAll(".point")
-        .data(data)
-        .enter().append("path")
-        .attr("class", "point")
-        .attr("d", d3.symbol().type(d3.symbolTriangle))
-             
+                          
             // Step 7
             svg.append('g')
             .selectAll(".point")
