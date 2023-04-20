@@ -8,17 +8,7 @@
 .myCircle:hover {
   stroke: black;
 }
- .axis path,
-    .axis line {
-        fill: none;
-        stroke: #000;
-        shape-rendering: crispEdges;
-    }
  
-    .point {
-        fill: steelblue;
-        stroke: #000;
-    }       
 </style>
 </head>
 <body>
@@ -82,13 +72,13 @@
                           
             // Step 7
             svg.append('g')
-            .selectAll(".point")
+            .selectAll("dot")
             .data(data)
-            .enter().append("path")
-            .attr("d", d3.symbol().type(d3.symbolStar))
-            .attr("cx", d=> xScale(d.Accidents))
-            .attr("cy", d=> yScale(d.Severity))
-            .attr("r", 2)
+            .enter()
+            .append("circle")
+            .attr("cx", d=> xScale(d.Severity))
+            .attr("cy", d=> yScale(d.Accidents))
+            .attr("r", 5)
             .attr("transform", "translate(" + 100 + "," + 100 + ")")
             .style("fill", "#2AABA4");
         });
