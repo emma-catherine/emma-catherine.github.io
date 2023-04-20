@@ -73,7 +73,7 @@
             .selectAll("dot")
             .data(data)
             .enter()
-            .append("rect")
+            .append("circle")
             .attr("cx", d=> xScale(d.Accidents))
             .attr("cy", d=> yScale(d.Severity))
             .attr("r", 2)
