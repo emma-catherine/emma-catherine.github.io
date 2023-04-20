@@ -56,12 +56,13 @@
         .text('Count of Accidents(Dependant)');
 
         // Step 6
+        //switched y and x Scale for Q1
         g.append("g")
          .attr("transform", "translate(0," + height + ")")
-         .call(d3.axisBottom(xScale));
+         .call(d3.axisBottom(yScale));
         
         g.append("g")
-         .call(d3.axisLeft(yScale));
+         .call(d3.axisLeft(xScale));
     
        
         //Load data and create scatter plot 
@@ -69,13 +70,14 @@
             console.log(data);
 
             // Step 7
+             //switched cy and cx
             svg.append('g')
             .selectAll("dot")
             .data(data)
             .enter()
             .append("circle")
-            .attr("cx", d=> xScale(d.Severity))
-            .attr("cy", d=> yScale(d.Accidents))
+            .attr("cy", d=> xScale(d.Severity))
+            .attr("cx", d=> yScale(d.Accidents))
             .attr("r", 2)
             .attr("transform", "translate(" + 100 + "," + 100 + ")")
             .style("fill", "#CC0000");
