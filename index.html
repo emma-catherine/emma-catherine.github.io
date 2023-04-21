@@ -2,20 +2,18 @@
 <html>
 <head>
     <title>Lab 5</title>
-    <!--Step 2-->
     <script src="https://d3js.org/d3.v5.min.js"></script>
 </head>
 <body>
-
     <div id="chart"></div>
 
-<script> 
-         // Step 1
-    var margin = {top: 30, right: 20, bottom: 50, left: 50},
+    <script>
+        // Step 1: Set the dimensions of the canvas / graph
+        var margin = {top: 30, right: 20, bottom: 50, left: 50},
             width = 600 - margin.left - margin.right,
             height = 400 - margin.top - margin.bottom;
-         
-    // Step 2
+
+        // Step 2: Append the svg object to the chart div
         var svg = d3.select("#chart")
                     .append("svg")
                     .attr("width", width + margin.left + margin.right)
@@ -23,11 +21,11 @@
                     .append("g")
                     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        // Step 3 
-        //Load data and create scatter plot 
-         d3.csv("data.csv").then(function(data) {
-             
-             // Step 4: Set the ranges
+        // Step 3: Parse the data
+      
+      d3.csv("https://raw.githubusercontent.com/emma-catherine/emma-catherine.github.io/blob/main/data.csv").then(function(data) {
+
+        // Step 4: Set the ranges
         var x = d3.scaleLinear()
                   .range([0, width])
                   .domain(d3.extent(data, function(d) { return d.Severity; })).nice();
@@ -35,7 +33,7 @@
         var y = d3.scaleLinear()
                   .range([height, 0])
                   .domain(d3.extent(data, function(d) { return d.PerCapitaAcc; })).nice();
-         
+
         // Step 5: Add the x and y axes
         var xAxis = d3.axisBottom(x);
 
@@ -46,24 +44,23 @@
         var yAxis = d3.axisLeft(y);
 
         svg.append("g")
-           .call(yAxis);            
-      
-        // Step 6: Add the x and y axis labels      
+           .call(yAxis);
+
+        // Step 6: Add the x and y axis labels
         svg.append("text")
            .attr("transform", "translate(" + (width/2) + " ," + (height + margin.top + 20) + ")")
            .style("text-anchor", "middle")
            .text("Severity");
-             
-       svg.append("text")
+
+        svg.append("text")
            .attr("transform", "rotate(-90)")
            .attr("y", 0 - margin.left)
            .attr("x",0 - (height / 2))
            .attr("dy", "1em")
            .style("text-anchor", "middle")
-           .text("Accidents");
-             
-             
-             // Step 7: Add the data points
+           .text("Accidents"); 
+
+        // Step 7: Add the data points
         svg.append('g')
             .selectAll("path")
             .data(data)
@@ -74,10 +71,9 @@
                 return "translate(" + x(d.Severity) + "," + y(d.PerCapitaAcc) + ")";
             })
             //.attr("r", 2)
-            .style("fill", "#2AABA4");
+            .style("fill", "#CC0000");
         
         });
-             
-</script>
-</body>
+    </script>
+  </body>
 </html>
