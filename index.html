@@ -62,15 +62,15 @@
 
         // Step 7: Add the data points
         svg.append('g')
-            .selectAll("path")
+            .selectAll("dot")
             .data(data)
             .enter()
-            .append("path")
-            .attr("d", d3.symbol().type(d3.symbolStar))
+            .append("circle")
+            //.attr("d", d3.symbol().type(d3.symbolStar))
             .attr("transform", function(d) {
                 return "translate(" + x(d.Severity) + "," + y(d.PerCapitaAcc) + ")";
             })
-            //.attr("r", 2)
+            .attr("r", 2)
             .style("fill", "#CC0000");
         
         });
