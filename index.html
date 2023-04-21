@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>Scatterplot with D3.js</title>
+    <title>Lab 5</title>
     <script src="https://d3js.org/d3.v5.min.js"></script>
 </head>
 <body>
@@ -28,11 +28,11 @@
         // Step 4: Set the ranges
         var x = d3.scaleLinear()
                   .range([0, width])
-                  .domain(d3.extent(data, function(d) { return d.Severity; })).nice();
+                  .domain(d3.extent(data, function(d) { return d.PerCapitaAcc; })).nice();
 
         var y = d3.scaleLinear()
                   .range([height, 0])
-                  .domain(d3.extent(data, function(d) { return d.PerCapitaAcc; })).nice();
+                  .domain(d3.extent(data, function(d) { return d.Severity; })).nice();
 
         // Step 5: Add the x and y axes
         var xAxis = d3.axisBottom(x);
@@ -50,7 +50,7 @@
         svg.append("text")
            .attr("transform", "translate(" + (width/2) + " ," + (height + margin.top + 20) + ")")
            .style("text-anchor", "middle")
-           .text("Severity");
+           .text("Accidents");
 
         svg.append("text")
            .attr("transform", "rotate(-90)")
@@ -58,7 +58,7 @@
            .attr("x",0 - (height / 2))
            .attr("dy", "1em")
            .style("text-anchor", "middle")
-           .text("Accidents"); 
+           .text("Severity"); 
 
         // Step 7: Add the data points
         svg.append('g')
