@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>Lab 5</title>
+    <title>Scatterplot with D3.js</title>
     <script src="https://d3js.org/d3.v5.min.js"></script>
 </head>
 <body>
@@ -23,7 +23,7 @@
 
         // Step 3: Parse the data
       
-      d3.csv("data.csv").then(function(data) {
+      d3.csv("https://raw.githubusercontent.com/raechelportelli/raechelportelli.github.io/master/GGIS517/Lab2/data2.csv").then(function(data) {
 
         // Step 4: Set the ranges
         var x = d3.scaleLinear()
@@ -62,15 +62,15 @@
 
         // Step 7: Add the data points
         svg.append('g')
-            .selectAll("dot")
+            .selectAll("path")
             .data(data)
             .enter()
-            .append("circle")
-            //.attr("d", d3.symbol().type(d3.symbolStar))
+            .append("path")
+            .attr("d", d3.symbol().type(d3.symbolTriangle))
             .attr("transform", function(d) {
                 return "translate(" + x(d.Severity) + "," + y(d.PerCapitaAcc) + ")";
             })
-            .attr("r", 2)
+            //.attr("r", 2)
             .style("fill", "#CC0000");
         
         });
