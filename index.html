@@ -39,9 +39,9 @@
 // define global variables
 var TRACE1 = "% White";
 var TRACE2 = "% Black";
-var NUMBER_OF_CLASS = 8;                                      // range: 5 ~ 9
-var CLASSIFICATION_METHOD = "Quantile"                        // Equal, Quantile or Jenks
-var COLOR_HUE = "Yellow_to_Red";                              // Red, Green or Blue
+var NUMBER_OF_CLASS = 7;                                      // range: 5 ~ 9
+var CLASSIFICATION_METHOD = "Jenks"                        // Equal, Quantile or Jenks
+var COLOR_HUE = "Blue";                              // Red, Green or Blue
 var NO_DATA = -9999;
 var COLOR_CLASS = {
 	"Red_5"     : ["#fee5d9", "#fcae91", "#fb6a4a", "#de2d26", "#a50f15"],
@@ -157,7 +157,7 @@ function assembleGeoJSON(geoJSON, geoVariables) {
  * nClass : number of class for classification.
  * item   : selected variable == TRACE.
  */
-function classification(method, nClass, item) {
+function classification("Jenks", 7, TRACE) {
 	
 	var values = [];
 	app.assembledGeoJSON.features.forEach(function(feature, i) {                  // skip if NO_DATA
