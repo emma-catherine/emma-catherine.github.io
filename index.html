@@ -157,7 +157,7 @@ function assembleGeoJSON(geoJSON, geoVariables) {
  * nClass : number of class for classification.
  * item   : selected variable == TRACE.
  */
-function classification("Jenks", 7, TRACE) {
+function classification(method, nClass, item) {
 	
 	var values = [];
 	app.assembledGeoJSON.features.forEach(function(feature, i) {                  // skip if NO_DATA
