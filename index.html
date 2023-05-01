@@ -63,17 +63,16 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-      var popup = L.popup();
+      //var popup = L.popup();
 
-      function onMapClick(e) {
-          popup
-              .setLatLng(e.latlng)
-              .setContent("You clicked the map at " + e.latlng.toString())
-              .openOn(map);
-      }
-
-      map.on('click', onMapClick);
-
+      //function onMapClick(e) {
+          //popup
+              //.setLatLng(e.latlng)
+              //.setContent("You clicked the map at " + e.latlng.toString())
+              //.openOn(map);
+      //}
+      //map.on('click', onMapClick);
+      
       var info = L.control();
 
       info.onAdd = function (map) {
@@ -145,7 +144,13 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       }).addTo(map);
 
       //points that will show AK cities
-      const cities = L.geoJSON(AKcity).addTo(map);
+      var cities = L.geoJSON(AKcity, {
+          onEachFeature: function, layer) {
+          var cityPop = feature.properties.City;
+          layer.bindPopup(cityPop);
+      }
+      });
+      cities.addTo(map);
 
       //locates the legend in the bottom right of the map
       var legend = L.control({ position: 'bottomright' });
