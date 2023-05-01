@@ -146,9 +146,8 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       //points that will show AK cities
       var cities = L.geoJSON(AKcity, {
           onEachFeature: function(feature, layer) {
-          var cityName = feature.properties.City;
-          var cityPop = feature.properties.Population;
-          layer.bindPopup(cityName, cityPop);
+          var cityName = feature.properties.City +" "+ feature.properties.Population;
+          layer.bindPopup(cityName);
       }
       });
       cities.addTo(map);
