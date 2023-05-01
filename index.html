@@ -82,7 +82,7 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
           return this._div;
       };
       info.update = function (edu) {
-          const contents = edu ? `<b>${edu.Norm} %</b><br />${edu.NAMELSAD20}` : 'Hover over a county';
+          const contents = edu ? `<b>${edu.ak_hs_attain.csv.Norm} %</b><br />${edu.tl_2020_02_county20.NAMELSAD20}` : 'Hover over a county';
           this._div.innerHTML = `<h4>Population with High School Diploma</h4>${contents}`;
       };
 
@@ -91,12 +91,12 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       //function formats the shape color based on the attribute d's value
       //function formats the shape color based on the attribute d's value
 
-      function getColor(Norm) {
-          return Norm > 93.9 ? '#BD0026' :
-              Norm > 77.1 ? '#E31A1C' :
-                  Norm > 59.6 ? '#FC4E2A' :
-                      Norm > 50.2 ? '#FD8D3C' :
-                          Norm > 42.5 ? '#FDC33C' :
+      function getColor(ak_hs_attain.csv.Norm) {
+          return ak_hs_attain.csv.Norm > 93.9 ? '#BD0026' :
+              ak_hs_attain.csv.Norm > 77.1 ? '#E31A1C' :
+                  ak_hs_attain.csv.Norm > 59.6 ? '#FC4E2A' :
+                      ak_hs_attain.csv.Norm > 50.2 ? '#FD8D3C' :
+                          ak_hs_attain.csv.Norm > 42.5 ? '#FDC33C' :
                            '#00a7bd' ;
       }
       function style(feature) {
