@@ -93,11 +93,11 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
       function getColor(ak_hs_attain_Norm) {
           return ak_hs_attain_Norm > 77.1 ? '#BD0026' :
-              ak_hs_attain_Norm > 59.6 ? '#E31A1C' :
-                  ak_hs_attain_Norm > 50.2 ? '#FC4E2A' :
-                      ak_hs_attain_Norm > 42.5 ? '#FD8D3C' :
-                          ak_hs_attain_Norm > 34.5 ? '#FDC33C' :
-                           '#FFEDA0' ;
+              ak_hs_attain_Norm > 59.6 ? '#FC4E2A' :
+                  ak_hs_attain_Norm > 50.2 ? '#FD8D3C' :
+                      ak_hs_attain_Norm > 42.5 ? '#FDC33C' :
+                          ak_hs_attain_Norm > 34.4 ? '#FFEDA0' :
+                           '#f0e8c7' ;
       }
       function style(feature) {
           return {
