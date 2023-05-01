@@ -154,7 +154,7 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       legend.onAdd = function (map) {
 
           var div = L.DomUtil.create('div', 'info legend'),
-              grades = [34.5, 60.5, 93.8],
+              grades = [34, 42, 50, 59, 73, 93],
               labels = [];
 
           // loop through our CensusData_NormBach intervals and generate a label and colored square
