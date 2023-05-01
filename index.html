@@ -92,12 +92,12 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       //function formats the shape color based on the attribute d's value
 
       function getColor(ak_hs_attain_Norm) {
-          return ak_hs_attain_Norm > 93.9 ? '#BD0026' :
-              ak_hs_attain_Norm > 77.1 ? '#E31A1C' :
-                  ak_hs_attain_Norm > 59.6 ? '#FC4E2A' :
-                      ak_hs_attain_Norm > 50.2 ? '#FD8D3C' :
-                          ak_hs_attain_Norm > 42.5 ? '#FDC33C' :
-                           '#00a7bd' ;
+          return ak_hs_attain_Norm > 77.1 ? '#BD0026' :
+              ak_hs_attain_Norm > 59.6 ? '#E31A1C' :
+                  ak_hs_attain_Norm > 50.2 ? '#FC4E2A' :
+                      ak_hs_attain_Norm > 42.5 ? '#FD8D3C' :
+                          ak_hs_attain_Norm > 34.5 ? '#FDC33C' :
+                           '#FFEDA0' ;
       }
       function style(feature) {
           return {
@@ -154,7 +154,7 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       legend.onAdd = function (map) {
 
           var div = L.DomUtil.create('div', 'info legend'),
-              grades = [10.5, 17.5, 27.5],
+              grades = [34.5, 60.5, 93.8],
               labels = [];
 
           // loop through our CensusData_NormBach intervals and generate a label and colored square
