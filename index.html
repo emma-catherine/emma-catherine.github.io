@@ -50,7 +50,7 @@
     
     <div id="map">
         <script type="text/javascript" src="AK_join_map.js"></script>
-        
+        <script type="text/javascript" src="AKcities.js"></script>
     </div>
 
   <script type="text/javascript">
@@ -145,7 +145,7 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       }).addTo(map);
 
       //points that will show AK cities
-      //const uniLocal = L.geoJSON(uni).addTo(map);
+      const cities = L.geoJSON(AKcity).addTo(map);
 
       //locates the legend in the bottom right of the map
       var legend = L.control({ position: 'bottomright' });
