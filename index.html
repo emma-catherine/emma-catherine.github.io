@@ -147,9 +147,8 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       var cities = L.geoJSON(AKcity, {
           onEachFeature: function(feature, layer) {
           var cityName = feature.properties.City;
-          layer.bindPopup(cityName);
           var cityPop = feature.properties.Population;
-          layer.bindPopup(cityPop);
+          layer.bindPopup(cityName, cityPop);
       }
       });
       cities.addTo(map);
