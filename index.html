@@ -93,7 +93,7 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       function getColor(ak_hs_attain_Norm) {
           return ak_hs_attain_Norm > 90 ? '#BD0026' :
               ak_hs_attain_Norm > 60 ? '#FC4E2A' :
-                  ak_hs_attain_Norm > 500 ? '#FD8D3C' :
+                  ak_hs_attain_Norm > 50 ? '#FD8D3C' :
                       ak_hs_attain_Norm > 40 ? '#fdc33c' :
                           ak_hs_attain_Norm > 30 ? '#FFEDA0' :
                            '#f0e8c7' ;
