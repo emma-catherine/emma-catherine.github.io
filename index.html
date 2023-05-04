@@ -144,7 +144,7 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       }).addTo(map);
 
       //points that will show AK cities
-      var cities = L.geoJSON(AKcity, {
+      var cities = L.geoJSON(Akcity, {
           onEachFeature: function(feature, layer) {
           var cityName = "City: "+ feature.properties.City +", Pop: "+ feature.properties.Population;
           layer.bindPopup(cityName);
