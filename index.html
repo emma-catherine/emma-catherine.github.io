@@ -177,6 +177,9 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       legend.addTo(map);
 
       //adding a plotly bar chart
+      var div = document.getElementbyId('myDiv');
+      div.style.right = "-500px";
+      
       var xValue =['Bethel', 'Lake & Peninsula', 'Kusilvak', 'Northwest Arctic', 'North Slope', 'Petersburg', 'Yakutat'];
       var yValue =[38, 18, 17, 11, 7, 3, 1];
       var trace1 = {
