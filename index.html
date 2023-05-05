@@ -177,7 +177,7 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       legend.addTo(map);
 
       //adding a plotly bar chart
-      
+      document.getElementById('chart').style.right = "-500px";
       
       var xValue =['Bethel', 'Lake & Peninsula', 'Kusilvak', 'Northwest Arctic', 'North Slope', 'Petersburg', 'Yakutat'];
       var yValue =[38, 18, 17, 11, 7, 3, 1];
@@ -189,7 +189,7 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
           textposition: 'auto',
           hoverinfo: 'none',
           marker: {
-              color: ['rgb(102, 153, 255)', 'rgb(153, 204, 255)', 'rgb(153, 204, 255)', 'rgb(153, 204, 255)', 'rgb(102, 153, 255)', 'rgb(153, 204, 255)', 'rgb(153, 204, 255)'],
+              color: ['rgb(0, 153, 51)', 'rgb(153, 204, 255)', 'rgb(153, 204, 255)', 'rgb(153, 204, 255)', 'rgb(0, 153, 51)', 'rgb(153, 204, 255)', 'rgb(153, 204, 255)'],
               opacity: 0.6,
               line: {
                   color: 'rgb(0, 51, 204)',
