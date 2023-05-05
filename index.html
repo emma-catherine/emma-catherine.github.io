@@ -51,18 +51,24 @@
 </head>
     
 <body>
-    <h1 style="font-size:50px;">High School Degree Attainment in Native Alaskans</h1>
-    <p style="font-size:25px;">The map on the left shows the percentage of Native Alaskans that have graduated high school for each county and 
-        shows the distribution of cities (population > 5,000) throughout the state. Native populations in remote counties have low graduation rates, 
-        but there is not a clear pattern to support that distance from citiesequates to lower degree attainment rates.</p>
-    <p style="font-size:25px;">The graph to the right highlights the counties with the lowest graduation rates with how many native viallages are in each county.  
-        The green bars are counties with one city and the blue bars have no cities within county limits.</p>
+    <h1 style="font-size:40px;">Spatial Distribution of High School Degree Attainment among Native Populations in Alaska</h1>
+    <h2 style="font-size:35px;">Does Proximity to Urban Areas Influence High School Graduation Rates in Alaska Natives?</h2> 
+    <p style="font-size:25px;">This map shows the percentage of Native Alaskans that have graduated high school for each county and 
+        has the distribution of cities (population > 5,000) displayed throughout the state. Native populations in remote counties have low graduation rates, 
+        but there is no clear pattern to support that distance from cities contributes to lower degree attainment rates.</p>
+    
     <div id="map">
         <script type="text/javascript" src="AK_join_map.js"></script>
         <script type="text/javascript" src="AKcities.js"></script>
     </div>
     
     <div id="chart" style="position: relative; width:700px;height:450px;"></div>
+    
+    <p style="font-size:25px;">This graph highlights the counties with the lowest graduation rates with how many native villages are in each county.  
+        The green bars are counties containing one city and the blue bars are counties with no cities present.<br> Although the Bethel Cencus Area has
+    a large city with 38 surrounding Native communities, it has a graduation rate of 39%. The Northwest Arctic Borough also has a graduation rate of 
+    39%, but has no cities and 11 Native communites.</p>
+    
   <script type="text/javascript">
 
   
@@ -188,8 +194,8 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       //adding a plotly bar chart
       //document.getElementById('chart').style.right = "-500px";
       
-      var xValue =['Bethel', 'Lake & Peninsula', 'Kusilvak', 'Northwest Arctic', 'North Slope', 'Petersburg', 'Yakutat'];
-      var yValue =[38, 18, 17, 11, 7, 3, 1];
+      var xValue =['Kusilvak', 'Lake & Peninsula', 'Yakutat', 'North Slope', 'Copper River', 'Wrangell', 'Aleutians', 'Skagway' ];
+      var yValue =[34.5, 34.7, 36.5, 37.2, 69.8, 77.1, 93.8, 93.9];
       var trace1 = {
           x: xValue,
           y: yValue,
@@ -198,17 +204,19 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
           textposition: 'auto',
           hoverinfo: 'none',
           marker: {
-              color: ['rgb(0, 153, 51)', 'rgb(153, 204, 255)', 'rgb(153, 204, 255)', 'rgb(153, 204, 255)', 'rgb(0, 153, 51)', 'rgb(153, 204, 255)', 'rgb(153, 204, 255)'],
+              color: ['rgb(255, 153, 153)', 'rgb(255, 153, 153)', 'rgb(255, 153, 153)', 'rgb(255, 153, 153)', 
+                      'rgb(204, 255, 204)', 'rgb(204, 255, 204)', 'rgb(204, 255, 204)', 'rgb(204, 255, 204)'],
               opacity: 0.6,
               line: {
-                  color: 'rgb(0, 51, 204)',
+                  color: ['rgb(0, 51, 204)', 'rgb(0, 51, 204)', 'rgb(0, 51, 204)', 'rgb(255, 255, 0)', 
+                          'rgb(0, 51, 204)', 'rgb(0, 51, 204)', 'rgb(0, 51, 204)', 'rgb(0, 51, 204)',],
                   width: 1.5
               }
             }
         };
       var data =[trace1];
       var layout = {
-          title: 'Native Villages per County with High School Diploma Rate <40%',
+          title: 'Lowest and Highest Highschool Attainment Rates',
           barmode: 'stack'
       };
       Plotly.newPlot('chart', data, layout);
