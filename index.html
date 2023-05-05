@@ -53,10 +53,12 @@
 <body>
     <h1 style="font-size:40px;">Spatial Distribution of High School Degree Attainment among Native Populations in Alaska</h1>
     <h2 style="font-size:35px;">Does Proximity to Urban Areas Influence High School Graduation Rates in Alaska Natives?</h2> 
-    <p style="font-size:25px;">This map shows the percentage of Native Alaskans that have graduated high school for each county and 
+    <p style="font-size:25px;">This map (left) shows the percentage of Native Alaskans that have graduated high school for each county and 
         has the distribution of cities (population > 5,000) displayed throughout the state. Native populations in remote counties have low graduation rates, 
         but there is no clear pattern to support that distance from cities contributes to lower degree attainment rates.</p>
-    
+    <p style="font-size:25px;">This graph (right) highlights the counties with the lowest (red) and highest (green) graduation rates among Native populations. 
+        The red bar outline indicates that a city is present in that county.</p>
+    <p style="font-size:25px; color:red;">Based on the distributions present, we cannot conclude that proximity to cities influence degree attainment.</p>
     <div id="map">
         <script type="text/javascript" src="AK_join_map.js"></script>
         <script type="text/javascript" src="AKcities.js"></script>
@@ -64,10 +66,7 @@
     
     <div id="chart" style="position: relative; width:700px;height:450px;"></div>
     
-    <p style="font-size:25px;">This graph highlights the counties with the lowest graduation rates with how many native villages are in each county.  
-        The green bars are counties containing one city and the blue bars are counties with no cities present.<br> Although the Bethel Cencus Area has
-    a large city with 38 surrounding Native communities, it has a graduation rate of 39%. The Northwest Arctic Borough also has a graduation rate of 
-    39%, but has no cities and 11 Native communites.</p>
+    
     
   <script type="text/javascript">
 
@@ -208,9 +207,9 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                       'rgb(204, 255, 204)', 'rgb(204, 255, 204)', 'rgb(204, 255, 204)', 'rgb(204, 255, 204)'],
               opacity: 0.6,
               line: {
-                  color: ['rgb(0, 51, 204)', 'rgb(0, 51, 204)', 'rgb(0, 51, 204)', 'rgb(255, 255, 0)', 
+                  color: ['rgb(0, 51, 204)', 'rgb(0, 51, 204)', 'rgb(0, 51, 204)', 'rgb(255, 0, 0)', 
                           'rgb(0, 51, 204)', 'rgb(0, 51, 204)', 'rgb(0, 51, 204)', 'rgb(0, 51, 204)',],
-                  width: 1.5
+                  width: 1.8
               }
             }
         };
