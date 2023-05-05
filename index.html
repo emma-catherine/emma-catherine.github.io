@@ -45,7 +45,7 @@
         }
     </style>
 </head>
-    <div id="myDiv" style="width:700px;height:450px;"></div>
+    
 <body>
     <h1>High School Degree Attainment in Native Alaskans</h1>
     
@@ -177,8 +177,7 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       legend.addTo(map);
 
       //adding a plotly bar chart
-      var div = document.getElementById('myDiv');
-      div.style.right = "-500px";
+      <div id="chart" style="width:700px;height:450px;"></div>
       
       var xValue =['Bethel', 'Lake & Peninsula', 'Kusilvak', 'Northwest Arctic', 'North Slope', 'Petersburg', 'Yakutat'];
       var yValue =[38, 18, 17, 11, 7, 3, 1];
@@ -203,7 +202,7 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
           title: 'Native Villages per County with High School Diploma Rate <40%',
           barmode: 'stack'
       };
-      Plotly.newPlot('myDiv', data, layout);
+      Plotly.newPlot('chart', data, layout);
           
       
   </script>
